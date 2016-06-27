@@ -8,13 +8,13 @@ class Board:
     board = []     
     def __init__(self):
         print("Boards has init")
-        self.evaluator = Evaluator()
+        
     def addCard(self,card):                                                     #card is instance of Card
         self.board.append(card)
     def getBoard(self):
-        return board
-    def getEquityOnePlayer(self,pairCards):
-        return self.evaluator.evaluate(board,pairCards)
+        return self.board
     def printBoard(self):
         Card.print_pretty_cards(self.board)
+    def clean(self):
+        self.board = []
         

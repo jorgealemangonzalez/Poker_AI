@@ -31,7 +31,10 @@ class Evaluator(object):
         Supports empty board, etc very flexible. No input validation 
         because that's cycles!
         """
-        all_cards = cards + board
+        all_cards = []
+        all_cards.extend(cards)
+        all_cards.extend(board)
+        
         return self.hand_size_map[len(all_cards)](all_cards)
 
     def _five(self, cards):
