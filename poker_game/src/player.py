@@ -34,7 +34,9 @@ class Player:
 
     def getHand(self):
         return self.hand
-
+    def setHand(self,hand):
+        self.hand = hand
+                    
     def printHand(self):
         Card.print_pretty_cards(self.hand)
 

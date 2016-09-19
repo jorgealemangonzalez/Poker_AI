@@ -1,9 +1,10 @@
 from board import Board
 from libraries.deuces import *
-
+from player import Player
 
 
 class Board_administrator:							#Means the dealer
+    players = [] #array of Player
     def __init__(self):
         self.board = Board()
         self.deck = Deck()
@@ -21,9 +22,17 @@ class Board_administrator:							#Means the dealer
     def printBoard(self):
         print self.board.printBoard()
                         
-    def dealPlayer(self):
-        return self.deck.draw(2)
+    def dealPlayer(self,player):
+        player.setHand(self.deck.draw(2))
                         
     def getEquityOnePlayer(self,pairCards):
         return self.evaluator.evaluate(self.board.getBoard(),pairCards)
+
+    def addPlayer(self,player):
+        self.players.append(player)
+
+    def dealPlayers(self):
+        for player in self.players:
+            self.dealPlayer(player)
+        
     
